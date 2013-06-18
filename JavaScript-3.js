@@ -1,10 +1,16 @@
 ////alert("JavaScript works!");
+//global variables
 var hotAir = 160;
 var hotWater = 100;
 var currentAir= 80;
 var steepTime = 60;
+var beerKey = "type";
+var yeastKey = "ingredients";
+var maltKey = "malt";
+var mashKey = "mash";
+var fermentKey = "fermentTime";
 
-
+//object 1
 var lagerBeer = {
     type:"lager",
     ingredients:["barley", "water", "lager yeast", "hops"],
@@ -17,9 +23,9 @@ var lagerBeer = {
     mash: function (steepTime) {
             var wort;
             var countDown;
-            while (steepTime > -1) {
+            while (steepTime >= 0) {
             countDown = steepTime--;
-                if (steepTime === -1) {
+                if (steepTime != countDown) {
                 wort = "Wort";
                 }
             } return wort;
@@ -27,7 +33,9 @@ var lagerBeer = {
     fermentTime: 5
     
 };
+//end object
 
+//object 2
 var aleBeer = {
 
     type:"ale",
@@ -51,11 +59,9 @@ var aleBeer = {
     fermentTime: 3
     
 };
-var beerKey = "type";
-var yeastKey = "ingredients";
-var maltKey = "malt";
-var mashKey = "mash";
-var fermentKey = "fermentTime";
+//end object
+
+//main code
 console.log(lagerBeer[beerKey]);
 console.log(lagerBeer[maltKey]);
 console.log(lagerBeer[mashKey]);
@@ -64,3 +70,8 @@ console.log(aleBeer[yeastKey]);
 console.log(aleBeer[fermentKey]);
 console.log(lagerBeer[fermentKey]);
 console.log(lagerBeer[yeastKey]);
+console.log(aleBeer[mashKey]);
+console.log (lagerBeer.mash(steepTime));
+console.log(lagerBeer.malt(currentAir, hotAir));
+console.log(aleBeer.mash(steepTime));
+console.log(aleBeer.malt(currentAir, hotAir));
