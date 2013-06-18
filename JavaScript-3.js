@@ -9,7 +9,6 @@ var yeastKey = "ingredients";
 var maltKey = "malt";
 var mashKey = "mash";
 var fermentKey = "fermentTime";
-
 //object 1
 var lagerBeer = {
     type:"lager",
@@ -49,9 +48,9 @@ var aleBeer = {
     mash: function (steepTime) {
             var wort;
             var countDown;
-            while (steepTime > -1) {
+            while (steepTime >= 0) {
             countDown = steepTime--;
-                if (steepTime === -1) {
+                if (steepTime != countDown) {
                 wort = "Wort";
                 }
             } return wort;
@@ -60,8 +59,14 @@ var aleBeer = {
     
 };
 //end object
+var lagerIngredients = lagerBeer.ingredients;
+var aleIngredients = aleBeer.ingredients;
+var getLagerYeast = (lagerIngredients)[2];
+var getAleYeast = (aleIngredients)[2];
 
 //main code
+console.log(getAleYeast);
+console.log(getLagerYeast);
 console.log(lagerBeer[beerKey]);
 console.log(lagerBeer[maltKey]);
 console.log(lagerBeer[mashKey]);
