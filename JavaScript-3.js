@@ -1,46 +1,61 @@
-//alert("JavaScript works!");
-var barleyBundle = {
-        name: "Barley Bundle",
-        stock: "100",
-        harvested: true,
-        };
-    //end object
+////alert("JavaScript works!");
 var hotAir = 160;
 var hotWater = 100;
 var currentAir= 80;
-var dryTime = "36 hours";
-var steepTime = "1 hour";
-var hops = true
-var spices = true
-var yeast = ["ale yeast", "lager yeast"];
-var barleyStock = barleyBundle.stock;
-var grain = barleyBundle.name;
+var steepTime = 60;
 
-//function
-var maltPrep = function (barleyStock) {
-    var malt;
-    if (barleyStock > 50) {
-        ("There is enough" + grain + "to make malt.")
-        malt = true
-    } else {
-        ("There is not enough " + grain + " to make malt.")
-        malt = false
-    }; return malt
-}
-//end function
 
-//new function start
-var dry = function (c,h) {
-    var dryBarley;
-    var warmUp;
-    while (c < h) {
-       warmUp = c++;
-        dryBarley = ("The air temperature is " + warmUp + " degrees");
-    }  return dryBarley;
-}
+var lagerBeer = {
+    type:"lager",
+    ingredients:["barley", "water", "lager yeast", "hops"],
+    malt:function (currentAir,hotAir) {
+            var warmUp;
+            while (currentAir <= hotAir) {
+            warmUp = currentAir++;
+        }  return warmUp;
+        },
+    mash: function (steepTime) {
+            var wort;
+            var countDown;
+            while (steepTime > -1) {
+            countDown = steepTime--;
+                if (steepTime === -1) {
+                wort = "Wort";
+                }
+            } return wort;
+        },
+    fermentTime: 5
+    
+};
 
-var gather = maltPrep(barleyStock);
-console.log (gather);
-var drying = dry(currentAir,hotAir);
-console.log (drying);
+var aleBeer = {
 
+    type:"ale",
+    ingredients:["barley", "water", "ale yeast", "hops"],
+    malt:function (currentAir,hotAir) {
+            var warmUp;
+            while (currentAir <= hotAir) {
+            warmUp = currentAir++;
+        }  return warmUp;
+        },
+    mash: function (steepTime) {
+            var wort;
+            var countDown;
+            while (steepTime > -1) {
+            countDown = steepTime--;
+                if (steepTime === -1) {
+                wort = "Wort";
+                }
+            } return wort;
+        },
+    fermentTime: 3
+    
+};
+
+var yeastKey = "ingredients";
+var fermentKey = "fermentTime";
+
+console.log(aleBeer[yeastKey]);
+console.log(aleBeer[fermentKey]);
+console.log(lagerBeer[fermentKey]);
+console.log(lagerBeer[yeastKey]);
