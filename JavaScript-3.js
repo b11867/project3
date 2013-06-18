@@ -51,10 +51,15 @@ var aleBeer = {
     fermentTime: 3
     
 };
-
+var beerKey = "type";
 var yeastKey = "ingredients";
+var maltKey = "malt";
+var mashKey = "mash";
 var fermentKey = "fermentTime";
-
+console.log(lagerBeer[beerKey]);
+console.log(lagerBeer[maltKey]);
+console.log(lagerBeer[mashKey]);
+console.log(aleBeer[beerKey]);
 console.log(aleBeer[yeastKey]);
 console.log(aleBeer[fermentKey]);
 console.log(lagerBeer[fermentKey]);
