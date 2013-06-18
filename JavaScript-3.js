@@ -5,10 +5,11 @@ var hotWater = 100;
 var currentAir= 80;
 var steepTime = 60;
 var beerKey = "type";
-var yeastKey = "ingredients";
+var ingKey = "ingredients";
 var maltKey = "malt";
 var mashKey = "mash";
 var fermentKey = "fermentTime";
+
 //object 1
 var lagerBeer = {
     type:"lager",
@@ -59,22 +60,49 @@ var aleBeer = {
     
 };
 //end object
+
 var lagerIngredients = lagerBeer.ingredients;
 var aleIngredients = aleBeer.ingredients;
+var aleIngredientsAmount = aleIngredients.length;
+var lagerIngredientsAmount = lagerIngredients.length
 var getLagerYeast = (lagerIngredients)[2];
 var getAleYeast = (aleIngredients)[2];
+var findAleYeast = function (aleIngredientsAmount) {
+    var yeastType;
+    for (i = 0; i != aleIngredientsAmount; i++) {
+            if (i === 2) {
+            yeastType = aleIngredients[2];
+            }
+        }; return yeastType;
+    }
+var findLagerYeast = function (lagerIngredientsAmount) {
+    var yeastType;
+    for (i = 0; i != lagerIngredientsAmount; i++) {
+            if (i === 2) {
+            yeastType = lagerIngredients[2];
+            }
+        }; return yeastType;
+    }        
+var aleYeastType = findAleYeast(aleIngredientsAmount);
+var lagerYeastType = findLagerYeast(lagerIngredientsAmount);
 
 //main code
+//Accessors
+console.log (lagerYeastType);
+console.log (aleYeastType);
+console.log(aleIngredients);
+console.log(aleIngredientsAmount);
+console.log(lagerIngredientsAmount);
 console.log(getAleYeast);
 console.log(getLagerYeast);
 console.log(lagerBeer[beerKey]);
 console.log(lagerBeer[maltKey]);
 console.log(lagerBeer[mashKey]);
 console.log(aleBeer[beerKey]);
-console.log(aleBeer[yeastKey]);
+console.log(aleBeer[ingKey]);
 console.log(aleBeer[fermentKey]);
 console.log(lagerBeer[fermentKey]);
-console.log(lagerBeer[yeastKey]);
+console.log(lagerBeer[ingKey]);
 console.log(aleBeer[mashKey]);
 console.log (lagerBeer.mash(steepTime));
 console.log(lagerBeer.malt(currentAir, hotAir));
